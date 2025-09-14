@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="WpfAddressBook.Views.ContactView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfAddressBook.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+            <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Liste der Kontakte -->
+            <ListBox ItemsSource="{Binding Contacts}" 
+             SelectedItem="{Binding SelectedContact}" 
+             DisplayMemberPath="LastName"
+             Grid.Column="0"
+             Margin="5"/>
+
+            <!-- Detailanzeige -->
+            <StackPanel Grid.Column="1" Margin="10" VerticalAlignment="Top">
+                <TextBlock Text="Vorname:" />
+                <TextBox Text="{Binding SelectedContact.FirstName, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,5"/>
+
+                <TextBlock Text="Nachname:" />
+                <TextBox Text="{Binding SelectedContact.LastName, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,5"/>
+
+                <TextBlock Text="E-Mail:" />
+                <TextBox Text="{Binding SelectedContact.Email, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Neu" Command="{Binding AddCommand}" Width="80" Margin="5"/>
+                    <Button Content="Löschen" Command="{Binding DeleteCommand}" Width="80" Margin="5"/>
+                </StackPanel>
+            </StackPanel>
+        
+    </Grid>
+</UserControl>

@@ -1,0 +1,27 @@
+﻿<Window x:Class="WpfAddressBook.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:WpfAddressBook.ViewModels"
+        xmlns:v="clr-namespace:WpfAddressBook.Views"
+        mc:Ignorable="d"
+        Title="WPF Address Book" Height="400" Width="600">
+
+    <!-- Setze den DataContext auf das MainViewModel -->
+   
+    <TabControl>
+        <TabItem Header="Kontakte">
+            <TabItem.DataContext>
+                <vm:ContactsViewModel/>
+            </TabItem.DataContext>
+            <v:ContactView></v:ContactView>
+        </TabItem>
+        <TabItem Header="Kontakte SqLite">
+            <TabItem.DataContext>
+                <vm:ContactsSqliteViewModel/>
+            </TabItem.DataContext>
+            <v:ContactView></v:ContactView>
+        </TabItem>
+    </TabControl>
+</Window>

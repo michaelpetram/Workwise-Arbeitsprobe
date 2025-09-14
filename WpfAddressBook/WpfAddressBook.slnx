@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="../WpfAddressBookIntegrationTest/WpfAddressBookIntegrationTest.csproj" Id="16f283e9-2a89-4b75-b206-6f242a3222d5" />
+  <Project Path="../WpfAddressBookTest/WpfAddressBookTest.csproj" />
+  <Project Path="WpfAddressBook.csproj" />
+</Solution>
